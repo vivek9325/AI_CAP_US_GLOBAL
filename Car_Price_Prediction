@@ -51,4 +51,10 @@ training_data_prediction = lin_reg_model.predict(X_train)
  
 error_score = metrics.r2_score(Y_train, training_data_prediction)
 print("R Squared Error:", error_score)
- 
+
+
+plt.scatter(Y_train, training_data_prediction)
+plt.xlabel("Actual Price")
+plt.ylabel("Predicted Price")
+plt.title("Actual Price vs predicted Price")
+plt.show()
