@@ -60,3 +60,14 @@ test_data_accuracy = accuracy_score(X_test_prediction, Y_test)
 print('Accuracy Score of the test Data : ', test_data_accuracy)
 
 
+input_data = (5,166,72,19,175,25.8,0.587,51)
+input_data_as_numpy_array = np.asarray(input_data)
+input_data_reshaped = input_data_as_numpy_array.reshape(1,-1)
+std_data = scaler.transform(input_data_reshaped)
+print(std_data)
+prediction = classifier.predict(std_data)
+print(prediction)
+if(prediction[0]==0):
+  print('person is not diabetic')
+else:
+  print('person is diabetic')
