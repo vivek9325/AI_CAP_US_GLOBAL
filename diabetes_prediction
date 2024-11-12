@@ -15,3 +15,22 @@ diabetes_dataset.shape
  
 diabetes_dataset.describe()
  
+diabetes_dataset['Outcome'].value_counts()
+ 
+diabetes_dataset.groupby('Outcome').mean()
+ 
+X = diabetes_dataset.drop(columns = 'Outcome',axis=1)
+Y = diabetes_dataset['Outcome']
+ 
+print(X)
+ 
+print(Y)
+ 
+scaler = StandardScaler()
+ 
+scaler.fit(X)
+ 
+standardized_data = scaler.transform(X)
+ 
+print(standardized_data)
+ 
