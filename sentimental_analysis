@@ -32,3 +32,34 @@ print(f"Feature Value : {data.columns.values}")
  
 data.isnull().sum()
  
+data.dropna(inplace=True)
+ 
+data['length'] = data['verified_reviews'].apply(len)
+ 
+ 
+data.head()
+ 
+data['rating'].value_counts().plot.bar(color='red')
+plt.title('Rating Distribution Count')
+plt.xlabel('Rating')
+plt.ylabel('Count')
+plt.show()
+ 
+fig = plt.figure(figsize=(7,7))
+ 
+colors = ('red', 'green', 'blue','orange','yellow')
+ 
+wp = {'linewidth':1, "edgecolor":'black'}
+ 
+tags = data['rating'].value_counts()/data.shape[0]
+ 
+explode=(0.1,0.1,0.1,0.1,0.1)
+ 
+tags.plot(kind='pie', autopct="%1.1f%%", shadow=True, colors=colors, startangle=90, wedgeprops=wp, explode=explode, label='Percentage wise distrubution of rating')
+ 
+from io import  BytesIO
+ 
+graph = BytesIO()
+ 
+fig.savefig(graph, format="png")
+ 
