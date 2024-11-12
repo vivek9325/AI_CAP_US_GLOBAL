@@ -62,4 +62,19 @@ from io import  BytesIO
 graph = BytesIO()
  
 fig.savefig(graph, format="png")
+
+
+corpus = []
+stemmer = PorterStemmer()
+for i in range(0,data.shape[0]):
+  review = re.sub('[^a-zA-Z]', ' ', data.iloc[i]['verified_reviews'])
+  review = review.lower().split()
+  review = [stemmer.stem(word) for word in review if not word in STOPWORDS]
+  review = ' '.join(review)
+  corpus.append(review)
+ 
+cv = CountVectorizer(max_features = 2500)
+x = cv.fit_transform(corpus).toarray()
+y = data['feedback'].values
+ 
  
