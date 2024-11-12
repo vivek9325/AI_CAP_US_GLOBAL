@@ -25,3 +25,11 @@ print(car_dataset.Fuel_Type.value_counts())
 print(car_dataset.Fuel_Type.value_counts())
 print(car_dataset.Seller_Type.value_counts())
 print(car_dataset.Transmission.value_counts())
+
+
+car_dataset.replace({'Fuel_Type':{'Petrol':0, 'Diesel':1, 'CNG': 2}}, inplace=True)
+car_dataset.replace({'Seller_Type':{'Dealer':0, 'Individual':1}}, inplace=True)
+car_dataset.replace({'Transmission':{'Manual':0, 'Automatic':1}}, inplace=True)
+
+car_dataset.head()
+ 
