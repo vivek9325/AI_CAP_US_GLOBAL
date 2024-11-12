@@ -33,3 +33,9 @@ car_dataset.replace({'Transmission':{'Manual':0, 'Automatic':1}}, inplace=True)
 
 car_dataset.head()
  
+X = car_dataset.drop(['Car_Name','Selling_Price'], axis=1)
+Y = car_dataset['Selling_Price']
+
+print(X)
+
+print(Y)
