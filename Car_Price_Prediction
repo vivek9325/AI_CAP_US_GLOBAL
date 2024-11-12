@@ -58,3 +58,16 @@ plt.xlabel("Actual Price")
 plt.ylabel("Predicted Price")
 plt.title("Actual Price vs predicted Price")
 plt.show()
+
+
+test_data_prediction = lin_reg_model.predict(X_test)
+ 
+error_score = metrics.r2_score(Y_test, test_data_prediction)
+print("R squared Error : ", error_score)
+ 
+plt.scatter(Y_test, test_data_prediction)
+plt.xlabel("Actual Price")
+plt.ylabel("Predicted Price")
+plt.title("Actual Price vs predicted Price")
+plt.show()
+ 
